@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lammy Omoyinmi — 70th Birthday</title>
+  <style>
+    :root{
+      --bg: #fffaf6;
+      --accent: #b8860b; /* goldenrod */
+      --muted: #bfaea1; /* soft beige */
+      --text: #2b2b2b;
+      --card: rgba(255,255,255,0.7);
+      --glass: rgba(255,255,255,0.85);
+      --maxw: 980px;
+      font-family: 'Helvetica', Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; background:linear-gradient(180deg,var(--bg),#fff); color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    .container{max-width:var(--maxw);margin:32px auto;padding:20px}
+    header{display:flex;gap:20px;align-items:center}
+    .hero{
+      display:grid;grid-template-columns:1fr;gap:18px;padding:28px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.9));box-shadow:0 8px 30px rgba(45,45,45,0.06);
+    }
+    .hero-row{display:flex;flex-wrap:wrap;gap:20px;align-items:center}
+    .celebrant-photo{width:160px;height:160px;border-radius:12px;object-fit:cover;border:6px solid rgba(184,134,11,0.12)}
+    .hero-text h1{margin:0;font-size:clamp(20px,3.6vw,36px);letter-spacing:0.6px}
+    .hero-text p{margin:6px 0;color:var(--muted)}
+    .btn{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;font-weight:600}
+
+    section{margin-top:22px}
+    .card{padding:18px;border-radius:12px;background:var(--glass);box-shadow:0 6px 18px rgba(0,0,0,0.04)}
+    form{display:grid;gap:12px}
+    input,textarea,select{padding:10px;border-radius:8px;border:1px solid #eee;background:white;font-size:15px;outline:none}
+    textarea{min-height:90px;resize:vertical}
+    .flex{display:flex;gap:12px;align-items:center}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .list {margin-top:10px;display:flex;flex-direction:column;gap:8px}
+    .list-item{padding:10px;border-radius:8px;background:linear-gradient(180deg,#fff,#fcfbf9);border:1px solid rgba(0,0,0,0.03)}
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media(min-width:720px){
+      .hero{grid-template-columns:1fr 1fr}
+      .hero-row{align-items:flex-start}
+    }
+    @media(min-width:980px){
+      .container{margin:48px auto}
+      header{justify-content:center}
+    }
+
+    /* small tweaks */
+    .small{font-size:13px;color:var(--muted)}
+    .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div style="text-align:center;">
+        <div class="small">Celebrating</div>
+        <h2 style="margin:6px 0">Lammy Omoyinmi</h2>
+        <div class="muted">70th Birthday — October 12</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="hero-row">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop&crop=faces" alt="Lammy Omoyinmi" class="celebrant-photo" id="celebrantPhoto">
+            <div class="hero-text">
+              <h1>Lammy Omoyinmi — 70 years</h1>
+              <p>Join us in celebrating a life of love, wisdom and legacy on <strong>October 12</strong>.</p>
+              <div style="margin-top:12px">
+                <a href="#rsvp" class="btn">Book Lunch</a>
+                <a href="#messages" style="margin-left:8px;text-decoration:none;padding:10px 14px;border-radius:10px;border:1px solid var(--accent);font-weight:600;color:var(--accent)">Send a Message</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start;justify-content:center">
+          <div class="card">
+            <h3 style="margin:0 0 8px 0">Event details</h3>
+            <p class="small">Date: <strong>October 12</strong><br>Time: <strong>12:30 PM</strong><br>Venue: <strong>TBD</strong></p>
+          </div>
+
+          <div class="card">
+            <h4 style="margin:0 0 8px 0">Quick notes</h4>
+            <p class="small">Please book for lunch if you plan to attend. Messages will be shown publicly below — keep them kind and warm.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="rsvp">
+        <h3 style="margin-top:18px">Book Lunch</h3>
+        <div class="card">
+          <form id="rsvpForm">
+            <div class="grid-2">
+              <input type="text" id="rsvpName" placeholder="Your name" required>
+              <input type="email" id="rsvpEmail" placeholder="Email (optional)">
+            </div>
+            <div class="flex">
+              <label for="guests" style="min-width:110px">No. of guests</label>
+              <select id="guests">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+            <div style="display:flex;gap:12px;align-items:center">
+              <button type="submit" class="btn">Submit RSVP</button>
+              <div id="rsvpStatus" class="small muted"></div>
+            </div>
+          </form>
+
+          <div style="margin-top:12px">
+            <strong>Recent RSVPs</strong>
+            <div id="rsvpList" class="list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="messages">
+        <h3 style="margin-top:18px">Messages & Wishes</h3>
+        <div class="card">
+          <form id="messageForm">
+            <input type="text" id="msgName" placeholder="Your name" required>
+            <textarea id="msgText" placeholder="Write your message..." required></textarea>
+            <div style="display:flex;gap:12px;align-items:center">
+              <button type="submit" class="btn">Send Message</button>
+              <div id="msgStatus" class="small muted"></div>
+            </div>
+          </form>
+
+          <div style="margin-top:14px">
+            <strong>Messages</strong>
+            <div id="messagesList" class="list"></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>Made with ❤️ for Lammy. Replace the celebrant photo by editing the <code>img#celebrantPhoto</code> src.</div>
+    </footer>
+  </div>
+
+  <!-- Firebase SDKs (modular) -->
+  <script type="module">
+    // ====== IMPORTANT ======
+    // 1) Create a Firebase project and enable Firestore (instructions below).
+    // 2) Replace firebaseConfig below with your project's config.
+    // 3) For quick testing, set Firestore rules to test mode (30 days). See notes below.
+
+    // --- FIREBASE IMPORTS ---
+    import { initializeApp } from "firebase/app";
+    import { getAnalytics } from "firebase/analytics";
+
+    // TODO: replace with your project's config from the Firebase console
+    const firebaseConfig = {
+      apiKey: "AIzaSyB2PuxH0PyCcCIMRV_FmBaq6-QdROFe1Po",
+      authDomain: "lenny-963a1.firebaseapp.com",
+      projectId: "lenny-963a1",
+      storageBucket: "lenny-963a1.firebasestorage.app",
+      messagingSenderId: "239470673225",
+      appId: "1:239470673225:web:66d4e03ff46b6c2e572e98"
+    };
+
+    // Initialize
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getFirestore(app);
+
+    // Collections
+    const rsvpCol = collection(db, 'rsvps');
+    const msgCol = collection(db, 'messages');
+
+    // UI refs
+    const rsvpForm = document.getElementById('rsvpForm');
+    const rsvpName = document.getElementById('rsvpName');
+    const rsvpEmail = document.getElementById('rsvpEmail');
+    const guests = document.getElementById('guests');
+    const rsvpStatus = document.getElementById('rsvpStatus');
+    const rsvpList = document.getElementById('rsvpList');
+
+    const messageForm = document.getElementById('messageForm');
+    const msgName = document.getElementById('msgName');
+    const msgText = document.getElementById('msgText');
+    const msgStatus = document.getElementById('msgStatus');
+    const messagesList = document.getElementById('messagesList');
+
+    // Helper to add a list item safely
+    function addListItem(container, fields){
+      const el = document.createElement('div');
+      el.className = 'list-item';
+      const name = document.createElement('div');
+      name.style.fontWeight = '600';
+      name.textContent = fields.name || 'Anonymous';
+      const body = document.createElement('div');
+      body.style.marginTop = '6px';
+      body.textContent = fields.text || '';
+      const small = document.createElement('div');
+      small.className = 'small muted';
+      small.style.marginTop = '8px';
+      small.textContent = fields.when ? new Date(fields.when.seconds * 1000).toLocaleString() : '';
+      el.appendChild(name);
+      el.appendChild(body);
+      el.appendChild(small);
+      container.prepend(el);
+    }
+
+    // Submit RSVP
+    rsvpForm.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const name = rsvpName.value.trim();
+      if(!name) return;
+      rsvpStatus.textContent = 'Submitting...';
+      try{
+        await addDoc(rsvpCol, { name, email: rsvpEmail.value.trim()||null, guests: parseInt(guests.value,10)||1, createdAt: serverTimestamp() });
+        rsvpStatus.textContent = 'Thanks — RSVP received!';
+        rsvpForm.reset();
+        setTimeout(()=> rsvpStatus.textContent = '', 3000);
+      }catch(err){
+        console.error(err);
+        rsvpStatus.textContent = 'Could not submit. Check console.';
+      }
+    });
+
+    // Submit Message
+    messageForm.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const name = msgName.value.trim();
+      const text = msgText.value.trim();
+      if(!name || !text) return;
+      msgStatus.textContent = 'Sending...';
+      try{
+        await addDoc(msgCol, { name, text, createdAt: serverTimestamp() });
+        msgStatus.textContent = 'Message sent — thank you!';
+        messageForm.reset();
+        setTimeout(()=> msgStatus.textContent = '', 3000);
+      }catch(err){
+        console.error(err);
+        msgStatus.textContent = 'Could not send. Check console.';
+      }
+    });
+
+    // Live listeners for latest messages and RSVPs
+    const msgsQ = query(msgCol, orderBy('createdAt','desc'), limit(30));
+    onSnapshot(msgsQ, (snap)=>{
+      messagesList.innerHTML = '';
+      snap.docs.forEach(doc => {
+        const data = doc.data();
+        addListItem(messagesList, { name: data.name, text: data.text, when: data.createdAt });
+      });
+    });
+
+    const rsvpQ = query(rsvpCol, orderBy('createdAt','desc'), limit(20));
+    onSnapshot(rsvpQ, (snap)=>{
+      rsvpList.innerHTML = '';
+      snap.docs.forEach(doc => {
+        const d = doc.data();
+        addListItem(rsvpList, { name: d.name + ' — ' + (d.guests||1) + ' guest(s)', text: d.email||'', when: d.createdAt });
+      });
+    });
+
+  </script>
+</body>
+</html>
